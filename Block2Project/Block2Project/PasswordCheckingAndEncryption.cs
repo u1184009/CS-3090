@@ -8,10 +8,24 @@ namespace Block2Project;
  */
 public class PasswordCheckingAndEncryption
 {
-
+    char[] specialChars = ['!','@', '#','$','%','&','*'];
+    
+    
     public static void Main()
     {
-        Console.Write("Enter your password: ");
+        string? input = "";
+
+        while (input == "")
+        {
+            Console.WriteLine("Enter your password");
+            Console.WriteLine("Requirements: Password must contain valid special characters (!,@, #,$,%,&,*), contain a upper and lower case letter, and a number.");
+            Console.WriteLine(); // Break point for spacing
+            input = Console.ReadLine();
+        }
+
+        
+
+
     }
 }
 
