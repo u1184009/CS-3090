@@ -1,7 +1,12 @@
 # CS-3090
+This is a simple program for entering a password and checking its strength.
+
+# How to use
+...
 
 # Limitations
-This software is strictly for educational purposes only. 
+This software is strictly for educational purposes only. It is not a secure way of storing a password due to it's simplicity. It also shouldn't be used to decrypt more sophisticated encyptions, this is morally wrong as it can potentially hurt the livelyhood for someone else. Not only that, you don't learn from quick and easy
+jobs. 
 
 # Licences
 License chosen is Apache 2.0, highly permissive while offering patent protection. This patent was chosen to allow for patent protection while allowing for free 
