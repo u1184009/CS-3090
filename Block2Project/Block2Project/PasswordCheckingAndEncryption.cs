@@ -34,6 +34,12 @@ public class PasswordCheckingAndEncryption
         return false;
     }
 
+    /**
+     * Checks input for numbers.
+     * 
+     * @param: password - string input to check
+     * @return boolean - true if contains number, false other wise
+     */
     private static bool containsNumber(string password)
     {
         foreach (char character in password)
@@ -48,6 +54,12 @@ public class PasswordCheckingAndEncryption
         return false;
     }
 
+    /**
+     * Check input for upper and lower case letters.
+     * 
+      * @param: password - string input to check
+      * @return boolean - true if contains both an upper and lower case, false otherwise
+      */
     private static bool containsUpperAndLowercase(string password)
     {
         bool upper = false;
@@ -78,21 +90,41 @@ public class PasswordCheckingAndEncryption
 
     }
 
+    /**
+     * Checks length of input.
+     * 
+      * @param: password - string input to check
+      * @return boolean - true if length is greater than 5, false other wise
+      */
     private static bool lengthCheck(string password)
     {
         return password.Length > 5;
     }
 
+    /**
+     * Encrypts password
+     * 
+      * @param: password - string input to check
+      * @return  -
+      */
     private static string encryptPassword(string password)
     {
         string encryptedPassword = "";
-        for(int i = 0; i < password.Length;i++)
+        for(int i = password.Length-1; i >= 0;i--) // Reverse
         {
-            encryptedPassword += password[i];
+            encryptedPassword += (int)password[i] + 76; // take in ASCII value + an arbitrary value: 76
+            if (i != 0)
+            {
+                encryptedPassword += " ";
+            }
         }
 
         return encryptedPassword;
     }
+    
+    /**
+     * Main
+     */
     public static void Main()
     {
         string input = "";
@@ -114,6 +146,7 @@ public class PasswordCheckingAndEncryption
         
         Console.WriteLine("Password Entered:  " + input);
 
+        // If false, will print message to make password stronger
         int strength = 0;
 
         if (containsNumber(input))
@@ -136,6 +169,7 @@ public class PasswordCheckingAndEncryption
             strength++;
         }
         
+        // Strength is printed out
         if (strength == 4)
         {
             Console.WriteLine("Password is strong");
@@ -149,6 +183,7 @@ public class PasswordCheckingAndEncryption
             Console.WriteLine("Password is weak");
         }
         
+        Console.WriteLine("Encryption: "+encryptPassword(input));
 
     }
 }
